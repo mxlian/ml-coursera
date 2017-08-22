@@ -38,3 +38,6 @@ vignettes/*.pdf
 
 # Exercise docs
 *.pdf
+
+# Coursera token
+*token.mat
