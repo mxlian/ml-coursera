@@ -6,5 +6,6 @@ notes and exercises on machine learning
 ## Week 3: Logistic regression
 ## Week 4: Neuronal Networks
     * An NN without hidden layers is a logistic regression problem
+## Week 4: Backpropagation
 
 [Octave Tutorial](http://www.opengardensblog.futuretext.com/wp-content/uploads/2014/03/OctaveTutorialAndrewNg.pdf)
