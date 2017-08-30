@@ -92,28 +92,6 @@ D2 = d3'*a2;
 Theta1_grad = D1/m;
 Theta2_grad = D2/m;
 
-%for t=1:m
-%    % Forward
-%    %
-%    layer1_z = [ ones(1,1) X(t,:) ] * Theta1';
-%    layer1_act = sigmoid(layer1_z);
-%
-%    layer2_z = [ ones(1,1) layer1_act ] * Theta2';
-%    layer2_act = sigmoid(layer2_z);
-%
-%    d3 = (layer2_act - Yr(t,:))';
-%    d2 = Theta2' * d3 ;
-%    d2 = d2(2:end)' .* sigmoidGradient(layer1_act(t,:));
-%    d2 = d2';
-%
-%    Theta2_grad = Theta2_grad + d3
-%    keyboard;
-%
-%
-%
-%
-%endfor
-
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
@@ -121,6 +99,12 @@ Theta2_grad = D2/m;
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
+
+Theta1_reg = (lambda/m) * Theta1(:,2:end);
+Theta2_reg = (lambda/m) * Theta2(:,2:end);
+
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + Theta1_reg;
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + Theta2_reg;
 
 
 
