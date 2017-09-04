@@ -27,21 +27,19 @@ J = J + regularization_term;
 grad0 = (h0 - y)' * X(:,1);
 grad0 = grad0/m;
 
-grad1 = (h0 - y)' * X(:,2) + lambda * theta(2);
-grad1 = grad1/m;
+grad_rest = (h0 - y)' * X(:,2:end) + (lambda * theta(2:end))';
+grad_rest = grad_rest/m;
 
-grad = [grad0 grad1];
+if size(grad)(1) > 1
+    %keyboard;
+endif
 
-
-
-
-
-
-
-
+grad = [grad0 grad_rest];
 
 % =========================================================================
 
 grad = grad(:);
+
+%keyboard;
 
 end
